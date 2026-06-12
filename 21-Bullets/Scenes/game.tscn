@@ -1,0 +1,156 @@
+[gd_scene format=4 uid="uid://bnh7rf51o3sqn"]
+
+[ext_resource type="PackedScene" uid="uid://c4yyw4aiy3vvd" path="res://Models/Garage.glb" id="1_1l0tm"]
+[ext_resource type="Script" uid="uid://cv04xw5kkcjan" path="res://Scrypts/game.gd" id="1_v158k"]
+[ext_resource type="PackedScene" uid="uid://cgyktin16qv1g" path="res://Scenes/card.tscn" id="2_h4fw4"]
+[ext_resource type="Material" uid="uid://dc2jw1okn2ajk" path="res://Materials/Material_Garage.tres" id="2_v158k"]
+[ext_resource type="Texture2D" uid="uid://cc1ic7ug8kn2n" path="res://Textures/atlas_garage.png" id="3_h4fw4"]
+[ext_resource type="PackedScene" uid="uid://bxtajw102qe1a" path="res://Models/requiem.glb" id="4_ldgsr"]
+[ext_resource type="PackedScene" uid="uid://cjas3els40c4q" path="res://Models/card.glb" id="5_o5yvi"]
+[ext_resource type="PackedScene" uid="uid://decajdybr0xqm" path="res://Models/chip.glb" id="6_rku1e"]
+[ext_resource type="PackedScene" uid="uid://cyw4j7my8bjsp" path="res://Models/stranger.glb" id="7_rfjv2"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1phco"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yxs7v"]
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = SubResource("CompressedTexture2D_1phco")
+roughness = 0.0
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_l07vl"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAAAEAAEAAwAFAAIABQAAAAIABgAEAAAABQAGAAAABwABAAQABwADAAEABgAHAAQABQADAAcABQAHAAYA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAAAAP////8AAAAA//8AAAAAAAAAAP//AAD///////8AAAAAAAAAAAAA//8AAAAAAAD//wAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nb51f"]
+resource_name = "Garage_Cube"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("DkAlANV/6X0OQOl91X8lAApQIn71Uw0o9VMifgpQDSgRRBB++UdKAPlHEH4RREoAHEDtfdN/HADTf+19HEAcAAZQJn74Uz4A+FMmfgZQPgARRBB+8UcVLPFHEH4RRBUs"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_yxs7v"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAAVNUAAP////9U1QAA//8AAFTV////////VNX//wAA////vwAA//////+//////////78AAAAA////vwAAAAD//1TVAAD//wAAVNUAAP////9U1QAAAAAAAFTVAAAAAAAA/7///wAA////v///AAAAAP+/AAAAAP///7///wAAAABU1f///////1TV/////wAAVNX//wAA//9U1QAAAAAAAP///////wAA//8AAP//AAD/////AAAAAP//qqqqqqqqqqqqqqqqqqqqqv////////////////////9U1VTVVNVU1VTVVNVU1VTVAAD/fwAA/38AAP9/AAD/f6oqqiqqKqoqqiqqKqoqqir/v/+//7//v/+//7//v/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_l07vl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nnt18"]
+albedo_texture = ExtResource("3_h4fw4")
+metallic_specular = 0.0
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ewbju"]
+albedo_texture = ExtResource("3_h4fw4")
+metallic_specular = 0.0
+texture_filter = 0
+
+[node name="Game" type="Node3D" unique_id=156628728]
+script = ExtResource("1_v158k")
+card_scene = ExtResource("2_h4fw4")
+
+[node name="Garage" parent="." unique_id=1430203122 instance=ExtResource("1_1l0tm")]
+
+[node name="Cube" parent="Garage" index="0" unique_id=2099722376]
+material_override = ExtResource("2_v158k")
+lod_bias = 0.001
+gi_lightmap_texel_scale = 0.01
+mesh = SubResource("ArrayMesh_nb51f")
+surface_material_override/0 = ExtResource("2_v158k")
+
+[node name="Циліндр" parent="Garage" index="1" unique_id=289209769]
+material_override = SubResource("StandardMaterial3D_nnt18")
+
+[node name="requiem" parent="." unique_id=1688747244 instance=ExtResource("4_ldgsr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.198, 0, 0.3)
+
+[node name="Куб" parent="requiem" index="0" unique_id=690674980]
+material_override = ExtResource("2_v158k")
+
+[node name="Циліндр_001" parent="requiem" index="1" unique_id=2040087987]
+material_override = SubResource("StandardMaterial3D_ewbju")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=2008589498]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.485738, 0)
+light_color = Color(0.9031513, 1, 0.60078114, 1)
+light_specular = 0.0
+shadow_enabled = true
+shadow_blur = 0.0
+
+[node name="card" parent="." unique_id=848375279 instance=ExtResource("5_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+
+[node name="Куб_001" parent="card" index="0" unique_id=480827024]
+transform = Transform3D(0.14502229, -1.0133642e-07, -0.00022982013, 6.4390424e-06, 0.0020653752, -0.00013693015, 0.0004065869, 3.4497018e-06, 0.08197491, -0.03853485, 1.0526642, -0.45238307)
+material_override = ExtResource("2_v158k")
+
+[node name="chip" parent="." unique_id=1223762437 instance=ExtResource("6_rku1e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06834626, 0, 0.014504483)
+
+[node name="Циліндр_002" parent="chip" index="0" unique_id=1094348786]
+transform = Transform3D(0.07414439, 0, 0, 0, 0.009779158, 0, 0, 0, 0.07414439, -0.031774685, 1.0569328, 0.44047475)
+material_override = ExtResource("2_v158k")
+
+[node name="stranger" parent="." unique_id=90299728 instance=ExtResource("7_rfjv2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19282693, 0, -0.07465201)
+
+[node name="Iкосфера_002" parent="stranger" index="0" unique_id=2028913361]
+transform = Transform3D(-0.0037820765, -0.072548956, 0.35082632, 0, 0.41146812, 0.061863538, -0.3611482, 0.0007597592, -0.0036739816, 1, 1.7, 0)
+material_override = ExtResource("2_v158k")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=40206173]
+
+[node name="TurnLabel" type="Label" parent="UI" unique_id=2055112922]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -31.0
+offset_top = -37.0
+offset_right = 32.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Ваш хід"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI" unique_id=1325258152]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HitButton" type="Button" parent="UI/HBoxContainer" unique_id=1187854130]
+layout_mode = 2
+text = "Взяти карту"
+
+[node name="StandButton" type="Button" parent="UI/HBoxContainer" unique_id=235953864]
+layout_mode = 2
+text = "Пас
+"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=433040059]
+transform = Transform3D(-4.371139e-08, 0.34202012, -0.9396926, 0, 0.9396926, 0.34202012, 1, 1.4950174e-08, -4.1075268e-08, -1.5, 2.3, 0)
+
+[connection signal="pressed" from="UI/HBoxContainer/HitButton" to="." method="_on_hit_button_pressed"]
+[connection signal="pressed" from="UI/HBoxContainer/StandButton" to="." method="_on_stand_button_pressed"]
+
+[editable path="Garage"]
+[editable path="requiem"]
+[editable path="card"]
+[editable path="chip"]
+[editable path="stranger"]

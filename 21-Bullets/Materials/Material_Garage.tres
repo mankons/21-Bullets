@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dc2jw1okn2ajk"]
+
+[ext_resource type="Texture2D" uid="uid://cc1ic7ug8kn2n" path="res://Textures/atlas_garage.png" id="1_klhnp"]
+
+[resource]
+albedo_texture = ExtResource("1_klhnp")
+metallic_specular = 0.0
+roughness_texture = ExtResource("1_klhnp")
+texture_filter = 0

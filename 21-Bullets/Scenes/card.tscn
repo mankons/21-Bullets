@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cgyktin16qv1g"]
+
+[ext_resource type="PackedScene" uid="uid://cjas3els40c4q" path="res://Models/card.glb" id="1_0qqmn"]
+[ext_resource type="Script" uid="uid://t05ql5bd3mu0" path="res://Scenes/card.gd" id="1_brehn"]
+[ext_resource type="Material" uid="uid://dc2jw1okn2ajk" path="res://Materials/Material_Garage.tres" id="3_eumee"]
+
+[sub_resource type="FontFile" id="FontFile_e6po8"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/512/0/ascent = 0.0
+cache/0/512/0/descent = 0.0
+cache/0/512/0/underline_position = 0.0
+cache/0/512/0/underline_thickness = 0.0
+cache/0/512/0/scale = 1.0
+
+[node name="Card" type="Node3D" unique_id=2017694033]
+script = ExtResource("1_brehn")
+
+[node name="card" parent="." unique_id=848375279 instance=ExtResource("1_0qqmn")]
+
+[node name="Куб_001" parent="card" index="0" unique_id=480827024]
+transform = Transform3D(0.14502285, 0, 0, 0, -0.0020653785, 7.166512e-09, 0, -1.8056112e-10, -0.08197534, -0.038534857, 1.0506963, -0.45238307)
+material_override = ExtResource("3_eumee")
+
+[node name="Label3D" type="Label3D" parent="card/Куб_001" index="0" unique_id=2090162257]
+transform = Transform3D(2.3760213e-08, -0.28766575, 0, -2.3760219e-08, -5.4963883e-16, -1, -0.54357046, -1.257427e-08, 4.371139e-08, 0, 1.2114868, 0)
+visible = false
+modulate = Color(0.5218618, 0.34610018, 2.8878452e-07, 1)
+text = "1"
+font = SubResource("FontFile_e6po8")
+font_size = 512
+outline_size = 1
+width = 1.0
+
+[editable path="card"]
